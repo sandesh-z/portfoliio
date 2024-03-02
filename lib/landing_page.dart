@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:portfoliio/ui/card.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -35,14 +37,18 @@ class _LandingPageState extends State<LandingPage> {
         ),
         backgroundColor: Colors.black,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/space.jpg"),
-            fit: BoxFit.cover,
+      body: Column(children: [
+        Expanded(
+          child: GridView.builder(
+            padding: const EdgeInsets.all(40),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4, crossAxisSpacing: 16, mainAxisSpacing: 16),
+            itemCount: 8,
+            itemBuilder: (_, count) =>
+                const AppCard(child: Text("My projects")),
           ),
         ),
-      ),
+      ]),
     );
   }
 }
