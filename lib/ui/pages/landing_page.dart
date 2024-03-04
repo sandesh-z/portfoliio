@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:portfoliio/ui/pages/about.dart';
+import 'package:portfoliio/ui/pages/contact.dart';
 import 'package:portfoliio/ui/widgets/app_card.dart';
 
 class LandingPage extends StatefulWidget {
@@ -38,9 +40,15 @@ class _LandingPageState extends State<LandingPage> {
               style: appTextStyle,
             ),
             SizedBox(width: titleGap),
-            Text(
-              'Contact',
-              style: appTextStyle,
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ContactPage()));
+              },
+              child: Text(
+                'Contact',
+                style: appTextStyle,
+              ),
             ),
             SizedBox(width: titleGap * 2),
           ],
@@ -74,6 +82,16 @@ class _LandingPageState extends State<LandingPage> {
                       itemCount: 8,
                       itemBuilder: (_, count) =>
                           const AppCard(child: Text("My projects")),
+                    ),
+                  ),
+                  const SizedBox(height: 40.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 120.0),
+                    child: Row(
+                      children: [
+                        Flexible(flex: 1, child: ContactMe()),
+                        Flexible(flex: 1, child: ContactForm())
+                      ],
                     ),
                   ),
                 ],
