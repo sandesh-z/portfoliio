@@ -1,65 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliio/ui/widgets/app_bar.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    TextStyle appTextStyle = const TextStyle(
-        color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18);
-    var titleGap = 20.0;
-    return
-        // appBar: AppBar(
-        //   leading: const Padding(
-        //       padding: EdgeInsets.only(left: 40.0),
-        //       child: Icon(
-        //         Icons.person_4,
-        //         size: 28,
-        //       )),
-        //   toolbarHeight: 79,
-        //   title: Row(
-        //     mainAxisAlignment: MainAxisAlignment.end,
-        //     children: [
-        //       Text(
-        //         "About",
-        //         style: appTextStyle,
-        //       ),
-        //       SizedBox(width: titleGap),
-        //       Text(
-        //         "Projects",
-        //         style: appTextStyle,
-        //       ),
-        //       SizedBox(width: titleGap),
-        //       ElevatedButton(
-        //         onPressed: () {
-        //           Navigator.of(context).push(
-        //               MaterialPageRoute(builder: (_) => const ContactPage()));
-        //         },
-        //         child: Text(
-        //           'Contact',
-        //           style: appTextStyle,
-        //         ),
-        //       ),
-        //       SizedBox(width: titleGap * 2),
-        //     ],
-        //   ),
-        //   backgroundColor: Colors.grey,
-        // ),
-
-        Column(
-      children: [
-        const SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(80.0),
-            child: Row(
-              children: [
-                Flexible(flex: 1, child: ContactMe()),
-                Flexible(flex: 1, child: ContactForm())
-              ],
-            ),
+    return Scaffold(
+      appBar: customAppBar(context: context),
+      body: const SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(80.0),
+          child: Row(
+            children: [
+              Flexible(flex: 1, child: ContactMe()),
+              Flexible(flex: 1, child: ContactForm())
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
